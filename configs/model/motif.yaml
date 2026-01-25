@@ -1,0 +1,25 @@
+# @package model
+
+_target_: src.models.scene_graph.MotifNet
+
+# Model architecture
+backbone: "resnet50"
+num_object_classes: 150
+num_predicate_classes: 50
+hidden_dim: 256
+num_layers: 2
+dropout: 0.1
+
+# Object detection
+use_fpn: true
+roi_pool_size: 7
+num_proposals: 100
+nms_threshold: 0.7
+score_threshold: 0.05
+
+# Scene graph specific
+use_context: true
+use_attention: true
+attention_heads: 8
+max_objects: 50
+max_relationships: 100

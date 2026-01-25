@@ -1,0 +1,32 @@
+# @package data
+
+_target_: src.data.datasets.VisualGenomeDataset
+
+# Dataset paths
+data_dir: "data"
+image_dir: "data/raw/images"
+annotation_file: "data/raw/annotations.json"
+
+# Data loading
+batch_size: 8
+num_workers: 4
+pin_memory: true
+persistent_workers: true
+
+# Image preprocessing
+image_size: [512, 512]
+min_image_size: 224
+max_image_size: 1024
+
+# Augmentation
+use_augmentation: true
+horizontal_flip: 0.5
+color_jitter: 0.1
+rotation: 10
+scale: [0.8, 1.2]
+
+# Scene graph specific
+max_objects_per_image: 50
+max_relationships_per_image: 100
+min_object_area: 0.001
+min_relationship_area: 0.0001

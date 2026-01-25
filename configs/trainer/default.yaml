@@ -1,0 +1,29 @@
+# @package trainer
+
+_target_: src.train.trainer.SceneGraphTrainer
+
+# Training parameters
+max_epochs: 100
+learning_rate: 0.001
+weight_decay: 0.0001
+gradient_clip_val: 1.0
+
+# Optimizer
+optimizer: "adamw"
+scheduler: "cosine"
+warmup_epochs: 5
+
+# Loss weights
+object_loss_weight: 1.0
+relationship_loss_weight: 1.0
+attribute_loss_weight: 0.5
+
+# Validation
+val_check_interval: 1.0
+early_stopping_patience: 10
+monitor: "val/mAP@50"
+
+# Checkpointing
+save_top_k: 3
+mode: "max"
+save_last: true

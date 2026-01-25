@@ -1,0 +1,33 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - override /model: motif
+  - override /data: visual_genome
+  - override /trainer: default
+
+# Project settings
+project_name: "scene_graph_generation"
+experiment_name: "sg_gen_experiment"
+seed: 42
+
+# Paths
+data_dir: "data"
+checkpoint_dir: "checkpoints"
+log_dir: "logs"
+assets_dir: "assets"
+
+# Device settings
+device: "auto"  # auto, cuda, mps, cpu
+mixed_precision: true
+compile_model: false
+
+# Logging
+log_level: "INFO"
+use_wandb: false
+wandb_project: "scene_graph_generation"
+
+# Evaluation
+eval_interval: 1
+save_interval: 5
+max_checkpoints: 3
